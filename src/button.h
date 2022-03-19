@@ -19,11 +19,13 @@ private:
     int lastState;
     int pin;
     unsigned long delay;
+    void (*btnAction)(void) = NULL;
 
 public:
     Button(int pin, unsigned long debounceDelay = DEFAULT_DELAY);
     // ~Button();
     void loop();
+    void setAction(void (*func)());
 };
 
 #endif

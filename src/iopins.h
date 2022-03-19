@@ -14,7 +14,7 @@
 #define INPUT_ROTARY_CLK        PIN_A7       // Rotary Encoder Input Clock Pin
 #define INPUT_ROTARY_DAT        PIN_A6       // Rotary Encoder Input Data Pin
 
-// TEMP LEDS
+// LEDS
 #define LED_INTERNAL           13       // Arduino Nano Internal Led
 #define LED_R                   5       // 
 #define LED_G                   3       // 
@@ -32,5 +32,9 @@
 #define LED_5                   PIN_A3
 #define LED_4                   PIN_A4
 #define LED_3                   PIN_A5
+
+// COMMUNICATION
+#define SOFT_TX                 11
+#define SOFT_RX                 10
 
 #endif

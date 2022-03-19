@@ -26,8 +26,8 @@ char *_firmware = "v.0.0.0";
 char *_model = "NStim";
 
 NStimConfig* setupConfig() {
-    config.model = "NStim";
-    config.firmware = "v.0.0.0";
+    // config.model = "NStim";
+    // config.firmware = "v.0.0.0";
     config.language = config_get(config.language, LANGUAGE_E2PROM_ADDRESS, LANGUAGE_DEFAULT);
     config.operationMode = config_get(config.operationMode, OPERATION_MODE_E2PROM_ADDRESS, OPERATION_MODE_DEFAULT);
     return &config;

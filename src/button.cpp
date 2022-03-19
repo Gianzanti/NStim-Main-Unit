@@ -1,8 +1,7 @@
 #include <Arduino.h>
 #include "button.h"
 
-Button::Button(int btnPin, unsigned long debounceDelay = DEFAULT_DELAY)
-{
+Button::Button(int btnPin, unsigned long debounceDelay = DEFAULT_DELAY) {
     pin = btnPin;
     lastDebounceTime = 0;
     lastState = HIGH;
@@ -13,8 +12,7 @@ Button::Button(int btnPin, unsigned long debounceDelay = DEFAULT_DELAY)
 
 // Button::~Button() {}
 
-void Button::loop()
-{
+void Button::loop() {
     char saida[40];
     int reading = digitalRead(pin);
 
@@ -30,8 +28,18 @@ void Button::loop()
             state = reading;
             sprintf(saida, "Button at %d: | State: %d", pin, state);
             Serial.println(saida);
+            
+            if (btnAction != NULL) {
+                btnAction();
+            }
         }
     }
 
     lastState = reading;
+}
+
+void Button::setAction(void (*func)(void)) {
+    if (func != NULL) {
+        btnAction = func;
+    }
 }
